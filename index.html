@@ -41,19 +41,16 @@
         <button type="button" id="btn-fullscreen">Full screen walk</button>
       </div>
       <div id="gps-stats"></div>
-      <p>Full screen hides the side panel and follows your position. GPS does not need mobile reception; map tiles do unless they are already cached.</p>
+      <div id="status"></div>
       <h2>GPX files</h2>
-      <p>Import a recorded or planned walk. Export the current line for a phone or GPS unit.</p>
       <div class="btn-row">
         <button type="button" id="btn-gpx-import">Import GPX</button>
         <button type="button" class="secondary" id="btn-gpx">Export GPX</button>
         <button type="button" class="secondary" id="btn-gpx-clear">Clear imported</button>
       </div>
-      <input id="gpx-file" type="file" accept=".gpx,application/gpx+xml,application/xml,text/xml" multiple>
+      <input id="gpx-file" type="file" accept=".gpx,application/gpx+xml" multiple>
       <ul id="gpx-list"></ul>
-      <div id="status"></div>
       <h2>Adventure overlay</h2>
-      <p>Looks up nearby history and notable places. While you walk it can ping you so you can take a picture for the field sheet.</p>
       <div class="btn-row">
         <button type="button" id="btn-poi-show">Show places</button>
         <button type="button" class="secondary" id="btn-poi-hide">Hide places</button>
@@ -62,7 +59,6 @@
       </div>
       <div id="brief"></div>
       <h2>Research this route</h2>
-      <p>Wikipedia and OpenStreetMap heritage tags along the line. Save the brief as a PDF.</p>
       <div class="btn-row">
         <button type="button" id="btn-research">Research this route</button>
         <button type="button" class="secondary" id="btn-research-pdf">Save brief PDF</button>
@@ -70,7 +66,6 @@
       </div>
       <div id="research"></div>
       <h2>Field sheet</h2>
-      <p>When you are near a find, snap a photo. It stays on this device with the place and time.</p>
       <div class="btn-row">
         <button type="button" id="btn-snap">Take picture</button>
         <button type="button" class="secondary" id="btn-sheet-export">Copy sheet</button>
@@ -79,36 +74,23 @@
       <input id="snap-file" type="file" accept="image/*" capture="environment">
       <ul id="field-log"></ul>
       <h2>Auto footpath route</h2>
-      <p>Place A and B, then plot. Works anywhere the pedestrian router covers, not only Penwith.</p>
       <div class="btn-row">
         <button type="button" id="btn-auto">Auto footpath route A to B</button>
       </div>
       <h2>Map key</h2>
-      <p>Symbols are from the OpenStreetMap layer. Satellite has no path marks.</p>
       <ul class="legend">
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><rect x="2" y="11" width="48" height="6" rx="1.5" fill="#f4e98a" stroke="#c4b86a"/></svg><span>Yellow or orange <strong>road</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><path d="M3 14h8M15 14h8M27 14h8M39 14h8" stroke="#b08950" stroke-width="3" stroke-linecap="round"/></svg><span>Brown dashes — <strong>track</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><path d="M3 14h7M14 14h7M25 14h7M36 14h7" stroke="#e08080" stroke-width="2.5" stroke-linecap="round"/></svg><span>Pink dashes — <strong>footway</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><circle cx="5" cy="14" r="2" fill="#e07070"/><circle cx="16" cy="14" r="2" fill="#e07070"/><circle cx="27" cy="14" r="2" fill="#e07070"/><circle cx="38" cy="14" r="2" fill="#e07070"/></svg><span>Pink dots — <strong>path</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><path d="M3 14h8M15 14h8M27 14h8M39 14h8" stroke="#2f8a48" stroke-width="2.6" stroke-linecap="round"/></svg><span>Green dashes — <strong>bridleway</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><path d="M3 16c8-8 14 6 22 0s14-8 24 2" fill="none" stroke="#8b3a2a" stroke-width="3" stroke-linecap="round"/></svg><span>Brown line — <strong>your plotted walk</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><circle cx="26" cy="14" r="10" fill="#2d5a3d"/><text x="26" y="18" text-anchor="middle" fill="#fff" font-size="11" font-family="Georgia, serif" font-weight="700">A</text></svg><span>Green letter — <strong>waypoint</strong>.</span></li>
-        <li><svg viewBox="0 0 52 28" aria-hidden="true"><rect x="4" y="6" width="44" height="16" rx="2" fill="#f4e07a" fill-opacity="0.55" stroke="#c4a020"/></svg><span>Yellow wash — <strong>CRoW access land</strong>.</span></li>
+        <li><span>Yellow or orange — road</span></li>
+        <li><span>Brown dashes — track</span></li>
+        <li><span>Pink dashes — footway</span></li>
+        <li><span>Pink dots — path</span></li>
+        <li><span>Green dashes — bridleway</span></li>
       </ul>
-      <p>A public footpath is a legal right, not a drawing style. Check an OS map and signs on the day.</p>
-      <h2>Access land and commons</h2>
-      <p>Natural England CRoW access layer for the current view. Excepted land still applies.</p>
+      <h2>Access land</h2>
       <div class="btn-row">
         <button type="button" id="btn-access">Show access land</button>
         <button type="button" class="secondary" id="btn-access-hide">Hide</button>
       </div>
-      <p>
-        <a href="https://magic.defra.gov.uk/MagicMap.aspx" target="_blank" rel="noopener">MAGIC map</a>
-        ·
-        <a href="https://www.cornwall.gov.uk/environment/countryside/definitive-map-and-statement/viewing-cornwalls-definitive-map-online/" target="_blank" rel="noopener">Cornwall definitive map</a>
-      </p>
-      <h2>Notes</h2>
-      <p>Planning aid only. Not the definitive map of public rights of way.</p>
+      <p><a href="https://magic.defra.gov.uk/MagicMap.aspx" target="_blank" rel="noopener">MAGIC map</a></p>
     </aside>
     <div class="map-wrap">
       <div id="map"></div>
@@ -128,9 +110,34 @@
       </div>
     </div>
   </div>
-  <footer>The Pathfinder · Mr Pathfinder. Map data © OpenStreetMap contributors. Pedestrian routing via OpenStreetMap.de. Access land © Natural England.</footer>
+  <footer>The Pathfinder · Map data © OpenStreetMap contributors.</footer>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+  <script>
+  (function () {
+    if (typeof L === 'undefined') return;
+    var centre = [50.118, -5.620];
+    var map = L.map('map', { zoomControl: true }).setView(centre, 12);
+    window.pathfinderMap = map;
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; OpenStreetMap'
+    }).addTo(map);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 19, attribution: 'Tiles &copy; Esri'
+    });
+    function fix() { setTimeout(function () { map.invalidateSize(); }, 250); }
+    window.addEventListener('resize', fix);
+    window.addEventListener('orientationchange', fix);
+    fix();
+    var statusEl = document.getElementById('status');
+    if (statusEl) statusEl.textContent = 'Map loaded. Full plot/GPS tools load next to this page.';
+    document.getElementById('btn-map-jump').addEventListener('click', function () {
+      document.querySelector('.map-wrap').scrollIntoView({ behavior: 'smooth' });
+      fix();
+    });
+  })();
+  </script>
   <script src="pathfinder-a.js"></script>
   <script src="pathfinder-b.js"></script>
 </body>
