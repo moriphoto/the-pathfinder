@@ -1,0 +1,78 @@
+:root {
+  --bg: #efe6c9;
+  --panel: #f7f1dc;
+  --ink: #1a2418;
+  --muted: #4d5a3f;
+  --accent: #2c4a28;
+  --accent-hover: #1f351c;
+  --line: #c4b48a;
+  --path: #c43c7a;
+  --os-yellow: #f3e27a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; font-family: Georgia, "Times New Roman", serif; color: var(--ink); background: var(--bg); }
+body { display: flex; flex-direction: column; }
+header { background: #2c4a28; color: #f3e7c4; border-bottom: 4px solid #c43c7a; padding: 0.85rem 1.25rem; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; flex-wrap: wrap; }
+header h1 { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+header p { font-size: 0.8rem; opacity: 0.8; font-family: system-ui, sans-serif; }
+.layout { flex: 1; display: flex; min-height: 0; }
+.map-jump { display: none; }
+@media (max-width: 800px) {
+  .layout { flex-direction: column; }
+  .map-wrap { order: -1; width: 100%; min-height: 58vh; height: 58vh; flex: none; }
+  aside { width: 100%; max-width: none; border-right: none; border-top: 1px solid var(--line); max-height: none; }
+  .map-jump { display: inline-block; margin-bottom: 0.6rem; }
+}
+aside { width: 320px; max-width: 100%; background: var(--panel); border-right: 1px solid var(--line); padding: 1.1rem 1.15rem; overflow-y: auto; font-family: system-ui, sans-serif; font-size: 0.875rem; line-height: 1.45; }
+aside h2 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 1.1rem 0 0.4rem; }
+aside h2:first-child { margin-top: 0; }
+aside p { color: var(--muted); margin-bottom: 0.75rem; }
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0.5rem 0 0.75rem; }
+button { font: inherit; font-size: 0.8rem; padding: 0.4rem 0.7rem; border: 1px solid var(--accent); background: var(--accent); color: #fff; cursor: pointer; border-radius: 3px; }
+button:hover { background: var(--accent-hover); }
+button.secondary { background: #f7f1dc; color: var(--accent); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+button.active-gps { background: #1a4d8c; border-color: #1a4d8c; }
+label.slider-lab { display: block; font-size: 0.75rem; color: var(--muted); margin: 0.45rem 0 0.15rem; }
+input[type="range"] { width: 100%; accent-color: #c43c7a; }
+input[type="file"] { display: none; }
+.mix-bar { display: flex; height: 14px; border-radius: 2px; overflow: hidden; border: 1px solid var(--line); margin: 0.4rem 0 0.25rem; background: #ddd; }
+.mix-bar span { display: block; height: 100%; }
+.mix-foot { background: #c43c7a; } .mix-bridle { background: #2f8a48; } .mix-track { background: #b08950; } .mix-road { background: #6a6a6a; } .mix-other { background: #9aa; }
+.mix-legend { font-size: 0.72rem; color: var(--muted); }
+#field-log { list-style: none; margin: 0.4rem 0; }
+#field-log li { border-bottom: 1px solid var(--line); padding: 0.4rem 0; font-size: 0.8rem; }
+#field-log img { width: 72px; height: 54px; object-fit: cover; display: block; margin-top: 0.25rem; border: 1px solid var(--line); }
+#poi-toast { display: none; position: absolute; left: 12px; right: 12px; bottom: 16px; z-index: 1200; background: #2c4a28; color: #f3e7c4; padding: 0.7rem 0.8rem; border-radius: 4px; box-shadow: 0 4px 16px rgba(0,0,0,0.3); font-family: system-ui, sans-serif; }
+#poi-toast strong { display: block; margin-bottom: 0.2rem; }
+#status { font-size: 0.8rem; color: var(--muted); min-height: 1.2em; margin-bottom: 0.5rem; }
+#route-stats, #gps-stats { display: none; background: #eef4ef; border: 1px solid #c5d6c8; padding: 0.65rem 0.75rem; margin-bottom: 0.75rem; border-radius: 3px; }
+#gps-stats { background: #e8eef6; border-color: #c5d0e0; }
+#route-stats strong, #gps-stats strong { display: block; font-size: 0.95rem; color: var(--ink); }
+#route-stats span, #gps-stats span { color: var(--muted); font-size: 0.8rem; }
+#waypoint-list, #gpx-list { list-style: none; }
+#waypoint-list li, #gpx-list li { padding: 0.35rem 0; border-bottom: 1px solid var(--line); }
+#waypoint-list .coords, #gpx-list .gpx-meta { color: var(--muted); font-size: 0.75rem; }
+#gpx-list .gpx-name { font-weight: 600; }
+#brief, #research { display: none; margin: 0.4rem 0 0.8rem; }
+.brief-block { margin-bottom: 0.7rem; }
+.brief-block h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 0.25rem; }
+.brief-block ul { margin: 0 0 0 1.05rem; }
+.res-num { background: #7a2e12; color: #fff; border: 2px solid #fff; border-radius: 50%; width: 22px; height: 22px; line-height: 18px; text-align: center; font: 700 11px system-ui, sans-serif; }
+.res-num.heritage { background: #5a4a12; }
+.legend { list-style: none; }
+.legend li { display: grid; grid-template-columns: 52px 1fr; gap: 0.6rem; align-items: center; margin: 0.5rem 0; }
+.legend svg { display: block; width: 52px; height: 28px; }
+#map, .map-wrap #map { flex: 1; min-height: 280px; }
+.map-wrap { flex: 1; min-height: 280px; position: relative; display: flex; }
+.wp-label { background: var(--accent); color: #fff; border-radius: 50%; width: 22px; height: 22px; line-height: 22px; text-align: center; font-weight: 600; font-size: 12px; }
+.gps-dot { width: 16px; height: 16px; background: #1a73e8; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 8px rgba(26,115,232,0.25); }
+.gps-wrap { width: 40px; height: 40px; position: relative; }
+.gps-heading { position: absolute; left: 50%; top: 0; width: 0; height: 0; margin-left: -6px; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 12px solid #1a73e8; }
+body.fullscreen header, body.fullscreen aside, body.fullscreen footer { display: none !important; }
+body.fullscreen .layout { display: block; height: 100%; }
+body.fullscreen .map-wrap, body.fullscreen #map { height: 100%; min-height: 100%; }
+#map-hud { display: none; position: absolute; z-index: 1000; right: 12px; top: 12px; flex-direction: column; gap: 0.4rem; align-items: flex-end; }
+body.fullscreen #map-hud { display: flex; }
+#hud-info { background: rgba(255,255,255,0.92); border-radius: 3px; padding: 0.45rem 0.6rem; font-size: 0.75rem; max-width: 210px; }
+footer { font-family: system-ui, sans-serif; font-size: 0.7rem; color: var(--muted); padding: 0.4rem 1rem; background: #ebe6db; border-top: 1px solid var(--line); }
